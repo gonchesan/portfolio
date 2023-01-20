@@ -1,0 +1,39 @@
+---
+import "../styles/components/navbar.scss";
+
+import Icon from "./Icon.astro";
+
+interface Pages {
+  pages: Page[];
+}
+interface Page {
+  title: string;
+  slug: string;
+  icon: string;
+}
+const { pages } = Astro.props;
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+---
+
+<nav class="navbar">
+  <ul class="list">
+    {
+      pages.map((page: Page) => (
+        <li
+          class={
+            (currentPath === "" && page.slug === "/") ||
+            currentPath === page.slug
+              ? "list__item--active"
+              : "list__item"
+          }
+        >
+          <a href={page.slug}>
+            <Icon icon={page.icon} /> <span>{page.title}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

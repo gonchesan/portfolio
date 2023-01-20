@@ -1,0 +1,45 @@
+---
+import "../styles/components/languageButton.scss";
+let language = "EN";
+---
+
+<div class="language-button">
+  <input
+    type="radio"
+    class="button__check"
+    id="english"
+    autocomplete="off"
+    checked=""
+  />
+  <label
+    class={`button ${
+      language === "EN" ? "button__label--checked" : "button__label"
+    }`}
+    for="english">EN</label
+  >
+  <input
+    type="radio"
+    class="button__check"
+    id="spanish"
+    autocomplete="off"
+    checked=""
+  />
+  <label
+    class={`button ${
+      language === "ES" ? "button__label--checked" : "button__label"
+    }`}
+    for="spanish">ES</label
+  >
+</div>
+<script>
+  const buttons = document.querySelectorAll(".button");
+  let language = "EN";
+  function toggle() {
+    language === "EN" ? (language = "ES") : (language = "EN");
+  }
+
+  // const buttons = document.querySelectorAll(".button");
+  buttons.forEach((button) => {
+    button.addEventListener("click", toggle);
+  });
+</script>

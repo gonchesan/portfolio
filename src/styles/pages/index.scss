@@ -1,0 +1,56 @@
+@import "../global.scss";
+
+.home-page {
+  height: 100vh;
+  padding: rem(0px) rem(24px);
+  .card {
+    &__body {
+      display: flex;
+      flex-direction: column;
+
+      .card {
+        &__image {
+          display: grid;
+          border-radius: 50%;
+          align-self: center;
+          background-color: $gray;
+          width: rem(150px);
+          height: rem(150px);
+          margin-top: rem(64px);
+        }
+        &__title {
+          margin-top: rem(16px);
+          font-weight: 700;
+          color: $black-dark;
+        }
+        &__subtitle {
+          color: $ash-gray;
+          font-size: rem(17px);
+          font-weight: 600;
+        }
+      }
+    }
+    .social-buttons {
+      text-align: center;
+      margin: rem(8px) auto;
+      a {
+        text-decoration: none;
+        border: none;
+        padding: rem(6px) rem(10px);
+        outline: none;
+        svg {
+          path {
+            fill: $ash-gray;
+          }
+        }
+      }
+    }
+    &__footer {
+      margin-top: rem(24px);
+      .button {
+        width: 100%;
+        margin-top: rem(14px);
+      }
+    }
+  }
+}
