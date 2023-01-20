@@ -1,0 +1,33 @@
+---
+export interface Props {
+  title: string;
+}
+const pages = [
+  { title: "Home", slug: "/", icon: "home" },
+  { title: "Projects", slug: "projects", icon: "projects" },
+  { title: "Skills", slug: "skills", icon: "skills" },
+  { title: "About", slug: "about", icon: "about" },
+];
+
+const { title, slug } = Astro.props;
+const page = pages.find((page) => page.slug === slug);
+// if(page) return
+import Navbar from "../components/Navbar.astro";
+import LanguageButton from "../components/LanguageButton.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <LanguageButton client="load" />
+    <Navbar pages={pages} />
+    <slot />
+  </body>
+</html>
