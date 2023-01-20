@@ -1,0 +1,47 @@
+---
+import "../styles/pages/skills.scss";
+
+import Layout from "../layouts/Layout.astro";
+import Tab from "../components/Tab";
+
+const knowledge = [
+  {
+    frontend: [
+      { title: "HTML", icon: "html" },
+      { title: "CSS", icon: "css" },
+      { title: "Javascript", icon: "javascript" },
+      { title: "React", icon: "react" },
+    ],
+    backend: [],
+    design: [],
+    manage: [{ title: "GIT", icon: "git" }],
+    toLearn: [{ title: "React Native", icon: "react-native" }],
+  },
+];
+const tabInformation = {
+  tabs: [
+    { id: "frontend", text: "Frontend" },
+    { id: "backend", text: "Backend" },
+    { id: "design", text: "Design" },
+    { id: "manage", text: "Manage" },
+    { id: "toLearn", text: "To learn" },
+  ],
+  panels: [
+    { id: "frontend", text: "Frontend" },
+    { id: "backend", text: "Backend" },
+    { id: "design", text: "Design" },
+    { id: "manage", text: "Manage" },
+    { id: "toLearn", text: "To learn" },
+  ],
+};
+---
+
+<!-- My Skills
+Currently I have skills and management of the following web and mobile technologies. -->
+<Layout title="Skills">
+  <section class="skills-page">
+    <h2>Skills</h2>
+    <p>I like to craft beautiful and scalable web products</p>
+    <Tab client:load tabInformation={tabInformation} />
+  </section>
+</Layout>

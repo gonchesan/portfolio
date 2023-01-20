@@ -1,0 +1,46 @@
+---
+import "../styles/global.scss";
+import "../styles/pages/index.scss";
+
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
+
+const socialMedia = [
+  {
+    title: "LinkedIn",
+    slug: "https://www.linkedin.com/in/gonchesan/",
+    icon: "linkedin",
+  },
+  { title: "Github", slug: "https://github.com/gonchesan", icon: "github" },
+];
+---
+
+<Layout title="Home" />
+<!-- <h2 class="hello">&lt;HelloWorld &sol;&gt;</h2> -->
+<section class="home-page">
+  <div class="card">
+    <div class="card__body">
+      <div class="card__image"></div>
+      <div class="social-buttons">
+        {
+          socialMedia.map((social) => (
+            <a href={social.slug} target="_blank" title={social.title}>
+              <Icon icon={social.icon} />
+            </a>
+          ))
+        }
+      </div>
+      <h3 class="card__title">Gonzalo Sanchez Garay</h3>
+      <p class="card__subtitle">Front-end developer</p>
+    </div>
+
+    <div class="card__footer">
+      <button class="button--md button--primary">Download CV</button>
+      <button class="button--md button--secondary">Recent projects</button>
+    </div>
+  </div>
+</section>
+<!-- <p>
+  A Front-End Developer passionate about creating interactive applications and
+  experiences on the web.
+</p> -->
