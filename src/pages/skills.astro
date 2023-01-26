@@ -4,34 +4,55 @@ import "../styles/pages/skills.scss";
 import Layout from "../layouts/Layout.astro";
 import Tab from "../components/Tab";
 
-const knowledge = [
-  {
-    frontend: [
-      { title: "HTML", icon: "html" },
-      { title: "CSS", icon: "css" },
-      { title: "Javascript", icon: "javascript" },
-      { title: "React", icon: "react" },
-    ],
-    backend: [],
-    design: [],
-    manage: [{ title: "GIT", icon: "git" }],
-    toLearn: [{ title: "React Native", icon: "react-native" }],
-  },
-];
 const tabInformation = {
   tabs: [
     { id: "frontend", text: "Frontend" },
     { id: "backend", text: "Backend" },
     { id: "design", text: "Design" },
-    { id: "manage", text: "Manage" },
+    { id: "manageVersion", text: "Manage" },
     { id: "toLearn", text: "To learn" },
   ],
   panels: [
-    { id: "frontend", text: "Frontend" },
-    { id: "backend", text: "Backend" },
-    { id: "design", text: "Design" },
-    { id: "manage", text: "Manage" },
-    { id: "toLearn", text: "To learn" },
+    {
+      id: "frontend",
+      information: [
+        { title: "HTML", icon: "html" },
+        { title: "CSS", icon: "css" },
+        { title: "Javascript", icon: "javascript" },
+        { title: "React", icon: "react" },
+        { title: "Angular", icon: "angular" },
+        { title: "Astro", icon: "astro" },
+        { title: "Bootstrap", icon: "bootstrap" },
+        { title: "Styled Components", icon: "styled-components" },
+      ],
+    },
+    {
+      id: "backend",
+      information: [
+        { title: "Node Js", icon: "node" },
+        { title: "Firebase", icon: "firebase" },
+      ],
+    },
+    {
+      id: "design",
+      information: [
+        { title: "Figma", icon: "figma" },
+        { title: "Adobe XD", icon: "xd" },
+        { title: "Photoshop", icon: "photoshop" },
+      ],
+    },
+    {
+      id: "manageVersion",
+      information: [
+        { title: "GIT", icon: "git" },
+        { title: "Github", icon: "github" },
+        { title: "Gitlab", icon: "gitlab" },
+      ],
+    },
+    {
+      id: "toLearn",
+      information: [{ title: "React Native", icon: "react" }],
+    },
   ],
 };
 ---
