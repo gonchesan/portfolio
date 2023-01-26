@@ -1,9 +1,10 @@
 @import "../global.scss";
 .navbar {
-  position: absolute;
+  position: fixed;
   bottom: rem(10px);
   left: 50%;
   transform: translate(-50%, 0%);
+  z-index: 15;
   .list {
     background-color: $gray;
     // background-color: rgb(24 39 63/1);
