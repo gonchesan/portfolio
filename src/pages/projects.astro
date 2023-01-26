@@ -1,8 +1,72 @@
 ---
 //  My Projects  List of projects  View of project
 import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard";
+import "../styles/pages/projects.scss";
+
+const PROJECTS = [
+  {
+    title: "Sparky Solutions",
+    description:
+      "This website was built using Next.js and pure CSS, with the help of the styled components library for a single reusable React component. The site is fully responsive and features three pages: home, about, and contact us.",
+    date: "31/12/2022",
+    status: "Completed",
+    repo: "https://github.com/whoknowsi/sparky-solutions",
+    website: "https://whoknowsi.github.io/sparky-solution/",
+    tags: [
+      { icon: "html", text: "HTML" },
+      { icon: "css", text: "CSS" },
+      { icon: "javascript", text: "Javascript" },
+      { icon: "react", text: "React" },
+    ],
+    img: [
+      "https://whoknows-portfolio.vercel.app/_next/image?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwhoknowsi%2Fsparky-solutions%2Fmain%2Fscreenshots%2Fcontact.png&w=1920&q=75",
+    ],
+  },
+  {
+    title: "Personal data API",
+    description:
+      "My public REST API for personal information. Use HTTP requests to view my certificates, projects, studies, work experience and more. This API is built with MongoDB, Mongoose, Express, and Node.js, and follows REST architecture. I am also using Jest for testing. This API is being consumed by my portfolio.",
+    date: "02/01/2023",
+    status: "Completed",
+    repo: "https://github.com/whoknowsi/personal-data-api",
+    website: "https://personal-data-api.vercel.app/",
+    tags: [
+      { icon: "html", text: "HTML" },
+      { icon: "css", text: "CSS" },
+      { icon: "javascript", text: "Javascript" },
+      { icon: "node", text: "NodeJS" },
+    ],
+    img: [
+      "https://whoknows-portfolio.vercel.app/_next/image?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwhoknowsi%2Fpersonal-data-api%2Fmaster%2Fscreenshots%2Ftest-coverage.png&w=1920&q=75",
+    ],
+  },
+  {
+    title: "PedidosYa Scraper API",
+    description:
+      "I am implementing a project that uses web scraping via Playwright to gather information from PedidosYa. I am then utilizing Cloudflare Workers and Hono to create an API for the collected information. The data is stored in JSON files and images are optimized using the Sharp library. These files are periodically uploaded to a MongoDB for backup.",
+    date: "20/01/2023",
+    status: "In progress",
+    repo: "https://github.com/whoknowsi/pedidosya-scraper-api/",
+    website: "",
+    tags: [
+      { icon: "javascript", text: "Javascript" },
+      { icon: "node", text: "NodeJS" },
+    ],
+    img: [
+      "https://whoknows-portfolio.vercel.app/_next/image?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwhoknowsi%2Fpedidosya-scraper-api%2Fmaster%2Fscreenshots%2Fproducts.png&w=1920&q=75",
+    ],
+  },
+];
 ---
 
 <Layout title="Projects">
-  <h2>Projects</h2>
+  <section class="projects-page">
+    <h2>Projects</h2>
+    {
+      PROJECTS.map((project) => (
+        <ProjectCard client:load projectData={project} />
+      ))
+    }
+  </section>
 </Layout>
