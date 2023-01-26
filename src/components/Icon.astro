@@ -6,13 +6,10 @@ export interface Props {
 }
 
 function getSVG(name: string) {
-  const filepath: string = `../../public/icons/${name}.svg`;
-  const files: any = import.meta.globEager<string>(
-    "../../public/icons/**/*.svg",
-    {
-      as: "raw",
-    }
-  );
+  const filepath: string = `../assets/icons/${name}.svg`;
+  const files: any = import.meta.globEager<string>("../assets/icons/**/*.svg", {
+    as: "raw",
+  });
 
   if (!(filepath in files)) {
     throw new Error(`${filepath} not found`);
