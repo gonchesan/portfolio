@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import "../styles/components/tab.scss";
+
 const Tab = ({ tabInformation }) => {
   const { tabs, panels } = tabInformation;
   const [activeTab, setActiveTab] = useState("");
@@ -7,16 +9,19 @@ const Tab = ({ tabInformation }) => {
 
   useEffect(() => {
     //TODO Fix the performance. Because the useEffect is called so many times.
-    console.log("useEffect[]");
-    let panelSelected = panels.find((panel) => panel.id === activeTab);
-    setActivePanel(panelSelected);
+    console.log("useEffect[:value:]");
+    if (activeTab !== "") {
+      let panelSelected = panels.find((panel) => panel.id === activeTab);
+      setActivePanel(panelSelected.information);
+    }
   }, [activeTab]);
 
   useEffect(() => {
     console.log("useEffect[]");
-    let panelSelected = panels.find((panel) => panel.id === tabs[0].id);
-    setActivePanel(panelSelected);
     setActiveTab(tabs[0].id);
+    let panelSelected = panels.find((panel) => panel.id === tabs[0].id);
+    console.log(panelSelected);
+    setActivePanel(panelSelected.information);
   }, []);
 
   return (
@@ -38,8 +43,21 @@ const Tab = ({ tabInformation }) => {
           </ul>
         </nav>
       </div>
-      {activeTab ? (
-        <div className="tab__panel">{<p>{activePanel.text}</p>}</div>
+      {activeTab !== [] ? (
+        <div className="tab__panel">
+          {activePanel.map((element) => (
+            <div title={element.title} className="block">
+              <img
+                className="block__image"
+                src={`../src/assets/icons/${element.icon}.png`}
+                alt=""
+              />
+              <p className="block__text" key={element.title}>
+                {element.title}
+              </p>
+            </div>
+          ))}
+        </div>
       ) : null}
     </>
   );

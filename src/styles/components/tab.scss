@@ -1,0 +1,85 @@
+@import "../global.scss";
+
+.tab {
+  display: flex;
+  width: 100%;
+  overflow: auto;
+  background-image: linear-gradient(to right, white, white),
+    linear-gradient(to right, white, white),
+    linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0)),
+    linear-gradient(to left, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0));
+  background-position: left center, right center, left center, right center;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-size: 20px 100%, 20px 100%, 10px 100%, 10px 100%;
+  background-attachment: local, local, scroll, scroll;
+
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    height: 0px;
+  }
+  &::-webkit-scrollbar * {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0) !important;
+  }
+
+  &__navigation {
+    .tab {
+      &__list {
+        display: flex;
+        list-style: none;
+        display: flex;
+        overflow-x: auto;
+      }
+      &__item {
+        font-size: rem(14px);
+        padding: 8px 16px;
+        border-bottom: 2px solid transparent;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        &--active {
+          @extend .tab__item;
+          font-weight: 600;
+          border-bottom: 2px solid $black-darker;
+        }
+      }
+    }
+  }
+  &__panel {
+    width: 100%;
+    background-color: $soft-gray;
+    min-height: 60vh;
+    display: grid;
+    padding: 8px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto-fill, rem(80px));
+
+    grid-column-gap: rem(8px);
+    grid-row-gap: rem(8px);
+    .block {
+      background-color: $light-gray;
+      border-radius: rem(6px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      &__image {
+        width: rem(48px);
+        height: rem(48px);
+      }
+      &__text {
+        font-size: rem(13px);
+        color: $gray;
+        font-weight: 600;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: rem(58px);
+        overflow-x: hidden;
+      }
+    }
+  }
+}
