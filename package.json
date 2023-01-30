@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/react": "^1.2.2",
     "astro": "^1.9.2",
+    "lodash.throttle": "^4.1.1",
     "sass": "^1.57.1"
   },
   "devDependencies": {
