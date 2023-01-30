@@ -1,6 +1,13 @@
 @import "../global.scss";
 
-.projects-page {
-  height: 100vh;
-  padding: rem(0px) rem(24px);
+.projects {
+  &-page {
+    min-height: 100vh;
+    height: 100%;
+    padding: rem(24px) rem(24px) rem(80px);
+  }
+  &__wrapper {
+    display: grid;
+    row-gap: rem(12px);
+  }
 }

@@ -63,10 +63,12 @@ const PROJECTS = [
 <Layout title="Projects">
   <section class="projects-page">
     <h2>Projects</h2>
-    {
-      PROJECTS.map((project) => (
-        <ProjectCard client:load projectData={project} />
-      ))
-    }
+    <div class="projects__wrapper">
+      {
+        PROJECTS.map((project) => (
+          <ProjectCard client:load projectData={project} />
+        ))
+      }
+    </div>
   </section>
 </Layout>
