@@ -43,7 +43,7 @@ const Tab = ({ tabInformation }) => {
           </ul>
         </nav>
       </div>
-      {activeTab !== [] ? (
+      {activeTab.length !== 0 ? (
         <div className="tab__panel">
           {activePanel.map((element) => (
             <div title={element.title} className="block">
