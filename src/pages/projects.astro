@@ -9,7 +9,7 @@ const PROJECTS = [
     title: "Sparky Solutions",
     description:
       "This website was built using Next.js and pure CSS, with the help of the styled components library for a single reusable React component. The site is fully responsive and features three pages: home, about, and contact us.",
-    date: "31/12/2022",
+    date: "Dec 31, 2022",
     status: "Completed",
     repo: "https://github.com/whoknowsi/sparky-solutions",
     website: "https://whoknowsi.github.io/sparky-solution/",
@@ -27,7 +27,7 @@ const PROJECTS = [
     title: "Personal data API",
     description:
       "My public REST API for personal information. Use HTTP requests to view my certificates, projects, studies, work experience and more. This API is built with MongoDB, Mongoose, Express, and Node.js, and follows REST architecture. I am also using Jest for testing. This API is being consumed by my portfolio.",
-    date: "02/01/2023",
+    date: "Jan 01, 2023",
     status: "Completed",
     repo: "https://github.com/whoknowsi/personal-data-api",
     website: "https://personal-data-api.vercel.app/",
@@ -45,7 +45,7 @@ const PROJECTS = [
     title: "PedidosYa Scraper API",
     description:
       "I am implementing a project that uses web scraping via Playwright to gather information from PedidosYa. I am then utilizing Cloudflare Workers and Hono to create an API for the collected information. The data is stored in JSON files and images are optimized using the Sharp library. These files are periodically uploaded to a MongoDB for backup.",
-    date: "20/01/2023",
+    date: "Jan 01, 2023",
     status: "In progress",
     repo: "https://github.com/whoknowsi/pedidosya-scraper-api/",
     website: "",
@@ -62,7 +62,10 @@ const PROJECTS = [
 
 <Layout title="Projects">
   <section class="projects-page">
-    <h2>Projects</h2>
+    <header class="header">
+      <h3 class="header__title">Projects</h3>
+      <p class="header__caption">More Recently Updated</p>
+    </header>
     <div class="projects__wrapper">
       {
         PROJECTS.map((project) => (

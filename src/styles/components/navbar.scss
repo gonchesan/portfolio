@@ -5,46 +5,52 @@
   left: 50%;
   transform: translate(-50%, 0%);
   z-index: 15;
+  //TODO Review this class
   .list {
-    background-color: $gray;
-    // background-color: rgb(24 39 63/1);
     list-style: none;
-    border-radius: 8px;
     display: flex;
-    padding: rem(8px) rem(16px);
+    padding: rem(8px) rem(12px);
+    background-color: rgba(38, 63, 97, 0.32);
+    border-radius: rem(16px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(38, 63, 97, 0.32);
 
     &__item {
-      // background-color: rgba(50, 138, 241, 0.1);
+      border: 1px solid transparent;
+      border-radius: rem(6px);
+
       a {
         display: flex;
         align-items: center;
         text-decoration: none;
       }
-      padding: rem(8px) rem(16px);
+      padding: rem(8px) rem(14px);
       span {
         display: none;
-        font-size: rem(14px);
+        font-size: rem(12.8px);
+        font-weight: 500;
       }
       svg {
         margin-right: 0px;
         path {
-          // fill: rgb(186 217 252/1);
-          fill: $soft-gray;
+          fill: rgb(186 217 252/1);
         }
       }
       &--active {
         @extend .list__item;
-        background-color: $black-darker;
-        border-radius: rem(6px);
+        background-color: rgb(24 39 63);
+        border-color: rgba(50, 138, 241, 0.2);
         span {
           display: block;
-          color: $white;
+          color: rgb(50 138 241);
         }
         svg {
           margin-right: rem(6px);
 
           path {
-            fill: $white;
+            fill: rgb(50 138 241);
           }
         }
       }

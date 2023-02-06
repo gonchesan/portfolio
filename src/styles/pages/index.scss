@@ -13,20 +13,24 @@
           display: grid;
           border-radius: 50%;
           align-self: center;
-          background-color: $gray;
+          background-color: #19304e;
           width: rem(150px);
           height: rem(150px);
           margin-top: rem(64px);
         }
         &__title {
-          margin-top: rem(16px);
-          font-weight: 700;
-          color: $black-dark;
+          line-height: 1.25;
+          font-size: rem(35.2px);
+          font-weight: 600;
+          color: #fff;
+          letter-spacing: 0.02rem;
         }
         &__subtitle {
-          color: $ash-gray;
-          font-size: rem(17px);
-          font-weight: 600;
+          color: $white;
+          font-weight: 500;
+          margin-top: rem(11.2px);
+          letter-spacing: 0;
+          font-family: $font-family-poppins;
         }
       }
     }
@@ -36,20 +40,73 @@
       a {
         text-decoration: none;
         border: none;
-        padding: rem(6px) rem(10px);
         outline: none;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.4rem;
+        height: 2.3rem;
+        width: 2.3rem;
+        transition: background-color 0.3s, border 0.3s;
+        background-color: hsla(212, 87%, 57%, 0.1);
+        margin-right: rem(8px);
+
         svg {
+          height: rem(36.8px);
+          width: rem(36.8px);
           path {
-            fill: $ash-gray;
+            fill: #bad9fc;
           }
+        }
+        &:hover {
+          background-color: hsla(212, 87%, 57%, 0.15);
         }
       }
     }
     &__footer {
-      margin-top: rem(24px);
+      margin-top: rem(12px);
       .button {
         width: 100%;
         margin-top: rem(14px);
+        border-color: transparent;
+        font-size: rem(12.8px);
+        font-weight: 600;
+        padding: rem(12px) rem(32px);
+        transition: background-color 0.3s;
+        font-family: $font-family-poppins;
+
+        &--primary {
+          @extend .button;
+          --tw-gradient-from: #328af1;
+          --tw-gradient-stops: var(--tw-gradient-from),
+            var(--tw-gradient-to, rgba(50, 138, 241, 0));
+          --tw-gradient-to: #328af1;
+          background-image: linear-gradient(to right, var(--tw-gradient-stops));
+          color: rgb(255 255 255 / var(--tw-text-opacity));
+          &:hover {
+            --tw-gradient-from: #328af1;
+            --tw-gradient-stops: var(--tw-gradient-from),
+              var(--tw-gradient-to, rgba(50, 138, 241, 0));
+            --tw-gradient-to: #21c8f6;
+            --tw-text-opacity: 1;
+            background-image: linear-gradient(
+              to right,
+              var(--tw-gradient-stops)
+            );
+            color: rgb(255 255 255 / var(--tw-text-opacity));
+          }
+        }
+        &--secondary {
+          @extend .button;
+          background-color: hsla(212, 87%, 57%, 0.1);
+          color: #ffffff;
+          transition: background-color border-color 0.3s;
+          &:hover {
+            border-color: rgb(50 138 241);
+            color: rgb(50 138 241);
+            background-color: hsla(212, 87%, 57%, 0.15);
+          }
+        }
       }
     }
   }

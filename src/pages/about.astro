@@ -5,33 +5,42 @@ import "../styles/pages/about.scss";
 
 <Layout title="About me">
   <section class="about-page">
-    <h2>About me</h2>
+    <header class="header">
+      <h3 class="header__title">About me</h3>
+      <p class="header__caption">
+        Here's what we're particularly excited to share with you!
+      </p>
+    </header>
     <div class="about__body">
-      <p class="about__text">
-        Hello, my name is Gonzalo I am fullstack javascript developer. I like
-        programming and I've been doing it for a long time, I work mainly with
-        the MERN stack, some of my hobbies are reading, watching anime and
-        cycling. I consider myself a person who adapts and learns fast every
-        day.
-      </p>
-      <p class="about__text">
-        Fast-forward to today, and I've had the privilege of working at an
-        advertising agency, a start-up, a huge corporation, and a student-led
-        design studio. My main focus these days is building accessible,
-        inclusive products and digital experiences at Upstatement for a variety
-        of clients.
-      </p>
-      <p class="about__text">
-        Here are a few technologies I've been working with recently:
-      </p>
-      <ul class="list">
-        <li class="list__item"><span class="disc"></span>JavaScript (ES6+)</li>
-        <li class="list__item"><span class="disc"></span>React</li>
-        <li class="list__item"><span class="disc"></span>Astro</li>
-        <li class="list__item"><span class="disc"></span>Node.js</li>
-        <li class="list__item"><span class="disc"></span>Angular</li>
-        <li class="list__item"><span class="disc"></span>TypeScript</li>
-      </ul>
+      <article class="card">
+        <p class="about__text">
+          Hello, my name is Gonzalo I am fullstack javascript developer. I like
+          programming and I've been doing it for a long time, I work mainly with
+          the MERN stack, some of my hobbies are reading, watching anime and
+          cycling. I consider myself a person who adapts and learns fast every
+          day.
+        </p>
+        <p class="about__text">
+          Fast-forward to today, and I've had the privilege of working at an
+          advertising agency, a start-up, a huge corporation, and a student-led
+          design studio. My main focus these days is building accessible,
+          inclusive products and digital experiences at Upstatement for a
+          variety of clients.
+        </p>
+        <p class="about__text">
+          Here are a few technologies I've been working with recently:
+        </p>
+        <ul class="list">
+          <li class="list__item">
+            <span class="disc"></span>JavaScript (ES6+)
+          </li>
+          <li class="list__item"><span class="disc"></span>React</li>
+          <li class="list__item"><span class="disc"></span>Astro</li>
+          <li class="list__item"><span class="disc"></span>Node.js</li>
+          <li class="list__item"><span class="disc"></span>Angular</li>
+          <li class="list__item"><span class="disc"></span>TypeScript</li>
+        </ul>
+      </article>
     </div>
   </section>
 </Layout>

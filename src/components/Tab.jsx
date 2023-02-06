@@ -46,7 +46,7 @@ const Tab = ({ tabInformation }) => {
       {activeTab.length !== 0 ? (
         <div className="tab__panel">
           {activePanel.map((element) => (
-            <div title={element.title} className="block">
+            <div title={element.title} className="block" key={element.title}>
               <img
                 className="block__image"
                 src={`../src/assets/icons/${element.icon}.png`}

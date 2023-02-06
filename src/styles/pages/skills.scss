@@ -1,6 +1,7 @@
 @import "../global.scss";
 
 .skills-page {
-  height: 100vh;
-  padding: rem(0px) rem(24px);
+  min-height: 100vh;
+  height: 100%;
+  padding: rem(24px) rem(24px) rem(80px);
 }

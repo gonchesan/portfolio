@@ -1,35 +1,56 @@
 @import "../global.scss";
 
 .card {
-  background-color: $soft-gray;
-  border-radius: rem(8px);
-  width: rem(264px);
   position: relative;
-  opacity: 0.6;
+  color: rgb(255 255 255);
+  background-color: rgb(24 39 63);
+  border-radius: rem(14.944px);
+  width: 100%;
+  height: auto;
+  margin-top: rem(8px);
+  opacity: 0.8;
   transition: 0.3s;
+
+  &__overlay {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(0deg, #00000088 30%, #ffffff44 100%);
+    border-radius: rem(14.944px);
+  }
   &__aside {
-    background-color: $gray;
-    height: rem(120px);
-    border-radius: rem(8px) rem(8px) 0 0;
+    position: relative;
+    height: 100%;
+    border-radius: rem(14.944px);
     transition: 0.3s;
+
     .card__image {
       object-fit: cover;
       width: 100%;
       height: 100%;
-      border-radius: rem(8px) rem(8px) 0 0;
+      border-radius: rem(14.944px) rem(14.944px) 0 0;
+      border-radius: rem(14.944px);
     }
     .card__status {
       position: absolute;
       top: rem(4px);
       right: rem(8px);
       font-size: rem(12px);
-      font-weight: 600;
+      font-weight: 500;
       z-index: 15;
       height: rem(20px);
       padding: rem(1px) rem(12px) rem(1px) rem(16px);
-      background-color: #1d9bf0;
+      background-color: transparent;
       color: $white;
       border-radius: rem(9999px);
+      font-size: 0.6666rem;
+      font-size: 0.6rem;
+      font-weight: 500;
+      line-height: 1.9;
+
       i {
         content: "";
         position: absolute;
@@ -42,44 +63,80 @@
         box-shadow: 0 -1px 1px 0 rgb(0 0 0 / 30%);
         border-radius: 50%;
       }
+      &--in-progress {
+        @extend .card__status;
+        background-color: rgb(24 39 63);
+      }
+      &--completed {
+        @extend .card__status;
+        background-color: #4e89da;
+      }
     }
-  }
-  &__header {
-    padding: rem(8px) rem(10px);
-    display: flex;
-    justify-content: space-between;
-    .card__title {
-      font-size: rem(17px);
-      font-weight: 600;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      width: rem(160px);
-      overflow: hidden;
-    }
-    .card__date {
-      display: flex;
-      align-items: center;
-      font-size: rem(13px);
-      font-weight: 600;
-      svg {
-        margin-right: rem(4px);
-        height: rem(18px);
-        width: rem(18px);
-        path {
-          stroke: $gray;
+    .card__header {
+      padding: rem(8px) rem(10px);
+      padding-left: 1.2rem;
+      padding-right: 1.2rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 15;
+
+      .card__title {
+        font-size: rem(17px);
+        font-weight: 600;
+        line-height: 1.4;
+        font-size: 1.3rem;
+        font-size: rem(15px);
+        font-family: $font-family-cabin;
+        letter-spacing: 0.02rem;
+      }
+
+      .card__date {
+        display: flex;
+        align-items: center;
+        column-gap: 0.75rem;
+        color: rgba(186, 217, 252, 0.75);
+        &-text {
+          display: flex;
+          align-items: center;
+          font-weight: 600;
+          font-weight: 600;
+          font-size: rem(11px);
+
+          svg {
+            margin-right: rem(4px);
+            height: rem(18px);
+            width: rem(18px);
+            path {
+              stroke: $white;
+            }
+          }
+        }
+        &-decoration {
+          width: rem(140px);
+          height: 1px;
+          background-color: rgb(120 144 156);
         }
       }
     }
   }
+
   &__body {
     padding: 0px rem(8px) rem(10px);
     height: 0px;
     transition: 0.4s;
     display: none;
     overflow-y: hidden;
+    padding-top: rem(11.2px);
+    padding-left: rem(19.2px);
+    padding-right: rem(19.2px);
 
     .card__description {
-      font-size: rem(14px);
+      color: rgb(255 255 255);
+      line-height: 1.7;
+      font-size: rem(12.59px);
+      font-family: $font-family-poppins;
+      margin-bottom: rem(8px);
     }
     .button--toggle {
       cursor: pointer;
@@ -87,18 +144,18 @@
       border: none;
       background-color: transparent;
       text-decoration: underline;
-      color: $gray;
+      color: rgb(50, 138, 241);
       font-weight: 600;
       transition: 0.3s;
       &:hover {
-        color: $black-darker;
+        color: rgba(50, 138, 241, 0.6);
       }
     }
     .badge {
       &__wrapper {
-        display: flex;
+        margin-top: rem(6px);
       }
-      background-color: $black-darker;
+      background-color: rgb(32 55 89);
       border-color: $gray;
       box-shadow: inset 0 2px 4px rgb(0 0 0 / 15%);
       padding: rem(2px) rem(5px) rem(2px) rem(4px);
@@ -121,6 +178,9 @@
         transition: 0.3s;
       }
       &:hover {
+        background-color: rgba(50, 138, 241, 0.4);
+        color: rgb(186 217 252);
+
         .badge__icon {
           filter: grayscale(0);
         }
@@ -128,32 +188,59 @@
     }
   }
   &__footer {
-    padding: rem(8px) rem(10px);
+    padding: rem(8px) rem(24px);
     border-radius: 0 0 rem(8px) rem(8px);
-    border-top: 1px solid $light-gray;
     display: flex;
     justify-content: end;
+    flex-direction: column;
+    max-width: rem(420px);
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    padding-bottom: 1rem;
+    gap: rem(12.48px);
     .card__button {
-      padding: rem(6px) rem(12px);
-      border-radius: rem(6px);
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
       transition: 0.4s;
-      opacity: 0;
-      display: none;
+      background-clip: padding-box;
+      border-color: transparent;
+      border-radius: rem(16px);
+      border-width: 1px;
+      align-items: center;
+      background-color: rgba(50, 138, 241, 0.1);
+      display: inline-flex;
+      justify-content: center;
+      color: rgb(34 34 34);
+      font-size: rem(12px);
+      font-weight: 600;
+      letter-spacing: rem(0.2px);
+      line-height: 1.15;
+      max-width: 30rem;
+      padding: rem(16px) rem(22px);
+      position: relative;
+      text-align: center;
+      text-transform: none;
+      transition-duration: 0.15s;
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
 
       svg {
         height: rem(13px);
         width: rem(13px);
-        margin-left: rem(3px);
+        margin-right: rem(8px);
       }
       &--primary {
         @extend .card__button;
         background-color: $black-darker;
+        --tw-gradient-from: #328af1;
+        --tw-gradient-stops: var(--tw-gradient-from),
+          var(--tw-gradient-to, rgba(50, 138, 241, 0));
+        --tw-gradient-to: #328af1;
+        background-image: linear-gradient(to right, var(--tw-gradient-stops));
+        color: rgb(255 255 255 / var(--tw-text-opacity));
         outline: none;
         border: 1px solid transparent;
-        margin-left: rem(6px);
         color: $white;
         svg {
           path {
@@ -164,11 +251,11 @@
       &--secondary {
         @extend .card__button;
         outline: none;
-        color: $black-darker;
-        border: 1px solid $black-darker;
+        color: $white;
+        border: 1px solid rgba(50, 138, 241, 0.1);
         svg {
           g {
-            stroke: $black-darker;
+            stroke: $white;
           }
         }
       }
@@ -178,18 +265,22 @@
     @extend .card;
     opacity: 1;
     .card {
+      &__overlay {
+        border-radius: rem(14.944px) rem(14.944px) 0 0;
+      }
       &__aside {
         height: rem(180px);
+        border-radius: rem(14.944px) rem(14.944px) 0 0;
+        .card__image {
+          border-radius: rem(14.944px) rem(14.944px) 0 0;
+        }
       }
       &__body {
         height: auto;
         display: block;
       }
       &__footer {
-        .card__button {
-          display: block;
-          opacity: 1;
-        }
+        opacity: 1;
       }
     }
   }

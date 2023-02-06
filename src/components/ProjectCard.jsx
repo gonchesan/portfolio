@@ -14,20 +14,32 @@ const ProjectCard = ({ projectData }) => {
   return (
     <div ref={cardRef} className={`card${isOpen ? "--active" : ""}`}>
       <div className="card__aside">
-        <span className="card__status">
+        <div className="card__overlay"></div>
+        <span
+          className={`card__status${
+            status === "Completed" ? "--completed" : "--in-progress"
+          }`}
+        >
           <i></i>
           {status}
         </span>
         <img className="card__image" src={img} alt={title} />
-      </div>
-      <div className="card__header">
-        <p className="card__title" title={title}>
-          {title}
-        </p>
-        <span className="card__date">
-          <CalendarIcon />
-          {date}
-        </span>
+        <div className="card__header">
+          <p className="card__title" title={title}>
+            {title}
+          </p>
+          <p className="card__date">
+            <span className="card__date-text">
+              {/* <CalendarIcon /> */}
+              {date}
+            </span>
+            <span className="h-px bg-grey-800 card__date-decoration"></span>
+          </p>
+          {/* <span className="card__date">
+            <CalendarIcon />
+            {date}
+          </span> */}
+        </div>
       </div>
       <div className="card__body">
         <span className="card__description">
@@ -51,12 +63,12 @@ const ProjectCard = ({ projectData }) => {
       </div>
       <div className="card__footer">
         <a href={repo} target="_blank" className="card__button--secondary">
-          View repo
           <LinkExternalIcon />
+          View repo
         </a>
         <a href={website} target="_blank" className="card__button--primary">
-          Visit website
           <WebsiteIcon />
+          Visit website
         </a>
       </div>
     </div>

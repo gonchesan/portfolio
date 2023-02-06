@@ -6,7 +6,6 @@
   right: rem(10px);
   display: inline-flex;
   vertical-align: middle;
-  // border-radius: rem(6px);
   .button {
     &__check {
       position: absolute;
@@ -14,10 +13,11 @@
       pointer-events: none;
     }
     &__label {
+      font-size: 0.8rem;
       padding: rem(6px) rem(8px);
-      color: $ash-gray;
-      background-color: $white;
-      border-color: $black-dark;
+      color: rgb(186 217 252);
+      background-color: rgba(50, 138, 241, 0.04);
+      border-color: rgb(50 138 241);
 
       &:first-of-type {
         border-radius: 0.25rem 0px 0px 0.25rem;
@@ -28,7 +28,7 @@
       &--checked {
         @extend .button__label;
         color: $white;
-        background-color: $ash-gray;
+        background-color: rgb(50 138 241);
       }
     }
   }

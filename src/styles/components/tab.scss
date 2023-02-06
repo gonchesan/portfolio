@@ -4,13 +4,15 @@
   display: flex;
   width: 100%;
   overflow: auto;
-  background-image: linear-gradient(to right, white, white),
-    linear-gradient(to right, white, white),
-    linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0)),
-    linear-gradient(to left, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0));
+  border-radius: 8px 8px 0 0;
+  padding-top: 8px;
+  background-image: linear-gradient(to right, transparent, transparent),
+    linear-gradient(to right, transparent, transparent),
+    linear-gradient(to right, rgba(50, 138, 241, 0.1), transparent),
+    linear-gradient(to left, rgba(50, 138, 241, 0.1), transparent);
   background-position: left center, right center, left center, right center;
   background-repeat: no-repeat;
-  background-color: white;
+  background-color: rgba(24, 39, 63, 1);
   background-size: 20px 100%, 20px 100%, 10px 100%, 10px 100%;
   background-attachment: local, local, scroll, scroll;
 
@@ -35,33 +37,67 @@
         overflow-x: auto;
       }
       &__item {
-        font-size: rem(14px);
-        padding: 8px 16px;
+        font-size: rem(13.56px);
+        padding: rem(8px) rem(16px) rem(16px);
         border-bottom: 2px solid transparent;
         text-overflow: ellipsis;
         white-space: nowrap;
+        color: rgba(186, 217, 252, 0.3);
         cursor: pointer;
+        position: relative;
         &--active {
           @extend .tab__item;
           font-weight: 600;
-          border-bottom: 2px solid $black-darker;
+          color: $white;
+          &::before {
+            content: "";
+            background-color: rgb(50 138 241);
+            border-radius: rem(14.944px);
+            bottom: 0px;
+            height: rem(5px);
+            width: 100%;
+            left: 0px;
+            pointer-events: none;
+            position: absolute;
+            transition: opacity 0.3s;
+          }
         }
       }
     }
   }
   &__panel {
     width: 100%;
-    background-color: $soft-gray;
+    border-radius: 0 0 8px 8px;
+    background-color: rgb(24 39 63);
     min-height: 60vh;
     display: grid;
-    padding: 8px;
+    padding: rem(8px);
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(auto-fill, rem(80px));
+    padding-top: rem(16px);
 
     grid-column-gap: rem(8px);
     grid-row-gap: rem(8px);
+    position: relative;
+    &::before {
+      content: "";
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 241, 0.2) 50%,
+        transparent 100%
+      );
+
+      position: absolute;
+      left: 0;
+      top: rem(-2px);
+      width: 100%;
+      height: 1px;
+    }
     .block {
-      background-color: $light-gray;
+      cursor: pointer;
+      transition: 0.3s;
+      background-color: rgba(50, 138, 241, 0.03);
       border-radius: rem(6px);
       display: flex;
       flex-direction: column;
@@ -72,13 +108,17 @@
         height: rem(48px);
       }
       &__text {
-        font-size: rem(13px);
-        color: $gray;
+        font-size: rem(12px);
+        font-family: $font-family-cabin;
+        color: $white;
         font-weight: 600;
         text-overflow: ellipsis;
         white-space: nowrap;
         max-width: rem(58px);
         overflow-x: hidden;
+      }
+      &:hover {
+        background-color: rgb(25 48 78);
       }
     }
   }
