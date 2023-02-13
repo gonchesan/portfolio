@@ -13,20 +13,20 @@
           display: grid;
           border-radius: 50%;
           align-self: center;
-          background-color: #19304e;
+          background-color: $soft-gray;
           width: rem(150px);
           height: rem(150px);
           margin-top: rem(64px);
         }
         &__title {
           line-height: 1.25;
-          font-size: rem(35.2px);
+          font-size: rem(30.2px);
           font-weight: 600;
-          color: #fff;
+          color: $full-white;
           letter-spacing: 0.02rem;
         }
         &__subtitle {
-          color: $white;
+          color: $light-violet;
           font-weight: 500;
           margin-top: rem(11.2px);
           letter-spacing: 0;
@@ -47,19 +47,19 @@
         border-radius: 0.4rem;
         height: 2.3rem;
         width: 2.3rem;
-        transition: background-color 0.3s, border 0.3s;
-        background-color: hsla(212, 87%, 57%, 0.1);
         margin-right: rem(8px);
+        transition: background-color 0.3s, border 0.3s;
+        background-color: $gray;
 
         svg {
           height: rem(36.8px);
           width: rem(36.8px);
           path {
-            fill: #bad9fc;
+            fill: $white;
           }
         }
         &:hover {
-          background-color: hsla(212, 87%, 57%, 0.15);
+          background-color: $gray-40;
         }
       }
     }
@@ -72,39 +72,42 @@
         font-size: rem(12.8px);
         font-weight: 600;
         padding: rem(12px) rem(32px);
-        transition: background-color 0.3s;
+        transition: 0.3s;
         font-family: $font-family-poppins;
 
         &--primary {
           @extend .button;
-          --tw-gradient-from: #328af1;
+          --tw-gradient-from: #ccf148;
           --tw-gradient-stops: var(--tw-gradient-from),
             var(--tw-gradient-to, rgba(50, 138, 241, 0));
-          --tw-gradient-to: #328af1;
+          --tw-gradient-to: #ccf148;
           background-image: linear-gradient(to right, var(--tw-gradient-stops));
-          color: rgb(255 255 255 / var(--tw-text-opacity));
+          color: $black;
           &:hover {
-            --tw-gradient-from: #328af1;
+            --tw-gradient-from: #ccf148;
             --tw-gradient-stops: var(--tw-gradient-from),
               var(--tw-gradient-to, rgba(50, 138, 241, 0));
-            --tw-gradient-to: #21c8f6;
-            --tw-text-opacity: 1;
+            --tw-gradient-to: #b3dd62;
             background-image: linear-gradient(
               to right,
               var(--tw-gradient-stops)
             );
-            color: rgb(255 255 255 / var(--tw-text-opacity));
+            color: $black;
+            box-shadow: 0 0 8px 1px rgba(204, 241, 72, 0.2);
           }
         }
         &--secondary {
           @extend .button;
-          background-color: hsla(212, 87%, 57%, 0.1);
-          color: #ffffff;
+          color: $full-white;
+          background-color: $black-50;
+          border-color: rgba(75, 80, 109, 0.3);
           transition: background-color border-color 0.3s;
+
           &:hover {
-            border-color: rgb(50 138 241);
-            color: rgb(50 138 241);
-            background-color: hsla(212, 87%, 57%, 0.15);
+            background-color: $gray-30;
+            border-color: $gray-30;
+            color: $full-white;
+            box-shadow: 0 0 16px 1px rgba(57, 56, 61, 0.3);
           }
         }
       }

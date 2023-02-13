@@ -6,13 +6,14 @@
   overflow: auto;
   border-radius: 8px 8px 0 0;
   padding-top: 8px;
+  padding: rem(8px) rem(8px) 0px;
   background-image: linear-gradient(to right, transparent, transparent),
     linear-gradient(to right, transparent, transparent),
-    linear-gradient(to right, rgba(50, 138, 241, 0.1), transparent),
-    linear-gradient(to left, rgba(50, 138, 241, 0.1), transparent);
+    linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent),
+    linear-gradient(to left, rgba(255, 255, 255, 0.1), transparent);
   background-position: left center, right center, left center, right center;
   background-repeat: no-repeat;
-  background-color: rgba(24, 39, 63, 1);
+  background-color: $ash-gray;
   background-size: 20px 100%, 20px 100%, 10px 100%, 10px 100%;
   background-attachment: local, local, scroll, scroll;
 
@@ -38,20 +39,30 @@
       }
       &__item {
         font-size: rem(13.56px);
-        padding: rem(8px) rem(16px) rem(16px);
+        padding: rem(5px) rem(14px);
+        margin-bottom: rem(8px);
         border-bottom: 2px solid transparent;
         text-overflow: ellipsis;
         white-space: nowrap;
         color: rgba(186, 217, 252, 0.3);
         cursor: pointer;
         position: relative;
+        &:hover {
+          color: rgba(186, 217, 252, 0.8);
+        }
         &--active {
           @extend .tab__item;
+          cursor: default;
           font-weight: 600;
-          color: $white;
+          color: $black;
+          background-color: $lemon;
+          border-radius: rem(6px);
+          &:hover {
+            color: $black;
+          }
           &::before {
             content: "";
-            background-color: rgb(50 138 241);
+            background-color: $lemon;
             border-radius: rem(14.944px);
             bottom: 0px;
             height: rem(5px);
@@ -68,7 +79,7 @@
   &__panel {
     width: 100%;
     border-radius: 0 0 8px 8px;
-    background-color: rgb(24 39 63);
+    background-color: $ash-gray;
     min-height: 60vh;
     display: grid;
     padding: rem(8px);
@@ -97,7 +108,7 @@
     .block {
       cursor: pointer;
       transition: 0.3s;
-      background-color: rgba(50, 138, 241, 0.03);
+      background-color: $gray;
       border-radius: rem(6px);
       display: flex;
       flex-direction: column;
@@ -118,7 +129,7 @@
         overflow-x: hidden;
       }
       &:hover {
-        background-color: rgb(25 48 78);
+        background-color: $gray-40;
       }
     }
   }

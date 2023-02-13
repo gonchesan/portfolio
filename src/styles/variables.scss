@@ -1,47 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,500;0,600;1,400&family=Poppins:wght@400;500;600&display=swap");
-
 //? ______________COLOR STYLES
-
-//Base
-
-//Success
-//Errors
-//Warning
-
 //Gray Scale
-$black-darker: #242724;
-$black-dark: #313431;
-$ash-gray: #313330;
-$gray: #4d4f4c;
-$soft-gray: #adafac;
+$black-darker: #1f1f21;
+$black-dark: #1e1f1c;
+$black: #211f27;
+$black-30: #303238;
+$black-50: #2e3032;
+$ash-gray: #2d2d31;
+$gray: #36353a;
+$gray-40: #454749;
+$gray-30: #39383d;
+$soft-gray: rgba(147, 154, 174, 0.5);
+$soft-gray-25: rgba(147, 154, 174, 0.25);
+
 $light-gray: #bcbebb;
 $white: #e9ebe8;
-//==========================
-// $primary: #328af1;
-// $orange100: #f8dcd8;
-// $gray900: #2a2727;
-// $gray850: #433f3f;
-// $gray825: #4d4949;
-// $gray600: #bad9fc;
-// $gray300: #aba2a1;
-// $gray200: #d1caca;
+$full-white: #f8f8f8;
+//Primary
+$light-lemon: #b3dd62;
+$lemon: #ccf148;
+$lemon-70: rgba(204, 241, 72, 0.7);
+$dark-lemon: #34382b;
+//Secondary
+$light-blue: #77ddde;
+$light-violet: #bdb0f4;
+$light-violet-50: #5d646c;
+$light-violet-25: rgba(186, 217, 252, 0.7);
 
-// .bg-blue {
-//   &-10 {
-//     background-color: rgba(50, 138, 241, 0.1);
-//   }
-//   &-15 {
-//     background-color: rgba(50, 138, 241, 0.15);
-//   }
-// }
-// //Text Colors
-// .text-grey {
-//   &-600 {
-//     color: rgb(186 217 252);
-//   }
-// }
-//body
-//fonts
+// $bgc-navbar: #1e1f1c;
+$color-item: #5d646c;
+$color-item-hover: rgba(186, 217, 252, 0.7);
 
 //? ______________FONTS
 $rem-base: 16;

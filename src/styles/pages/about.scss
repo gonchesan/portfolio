@@ -16,7 +16,7 @@
       height: auto;
       -webkit-mask-image: -webkit-radial-gradient(center, white, black);
 
-      background-color: rgb(24 39 63);
+      background-color: $ash-gray;
     }
     .about__text {
       font-family: $font-family-poppins;
@@ -41,7 +41,7 @@
           margin-right: rem(6px);
           border-radius: 0.25rem;
           display: inline-block;
-          background-color: rgba(50, 138, 241);
+          background-color: $lemon;
         }
       }
     }

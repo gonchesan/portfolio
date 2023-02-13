@@ -13,11 +13,10 @@
       pointer-events: none;
     }
     &__label {
-      font-size: 0.8rem;
+      font-size: rem(12.8px);
       padding: rem(6px) rem(8px);
-      color: rgb(186 217 252);
-      background-color: rgba(50, 138, 241, 0.04);
-      border-color: rgb(50 138 241);
+      color: $white;
+      border-color: $lemon;
 
       &:first-of-type {
         border-radius: 0.25rem 0px 0px 0.25rem;
@@ -25,10 +24,18 @@
       &:last-of-type {
         border-radius: 0px 0.25rem 0.25rem 0px;
       }
+      &:hover {
+        border-color: $lemon;
+      }
       &--checked {
         @extend .button__label;
-        color: $white;
-        background-color: rgb(50 138 241);
+        color: $black;
+        background-color: $lemon;
+        cursor: default;
+        &:hover {
+          color: $black;
+          background-color: $lemon;
+        }
       }
     }
   }

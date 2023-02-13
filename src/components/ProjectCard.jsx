@@ -62,13 +62,13 @@ const ProjectCard = ({ projectData }) => {
         </div>
       </div>
       <div className="card__footer">
-        <a href={repo} target="_blank" className="card__button--secondary">
-          <LinkExternalIcon />
-          View repo
-        </a>
         <a href={website} target="_blank" className="card__button--primary">
           <WebsiteIcon />
           Visit website
+        </a>
+        <a href={repo} target="_blank" className="card__button--secondary">
+          <LinkExternalIcon />
+          View repo
         </a>
       </div>
     </div>

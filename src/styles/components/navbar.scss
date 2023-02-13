@@ -5,18 +5,16 @@
   left: 50%;
   transform: translate(-50%, 0%);
   z-index: 15;
-  //TODO Review this class
   .list {
     list-style: none;
     display: flex;
     padding: rem(8px) rem(12px);
-    background-color: rgba(38, 63, 97, 0.32);
     border-radius: rem(16px);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(38, 63, 97, 0.32);
-
+    border: 1px solid rgba(67, 69, 77, 0.3);
+    background-color: $black-dark;
     &__item {
       border: 1px solid transparent;
       border-radius: rem(6px);
@@ -26,7 +24,7 @@
         align-items: center;
         text-decoration: none;
       }
-      padding: rem(8px) rem(14px);
+      padding: rem(2px) rem(6px);
       span {
         display: none;
         font-size: rem(12.8px);
@@ -34,23 +32,44 @@
       }
       svg {
         margin-right: 0px;
+        width: 38px;
+        height: 38px;
+        padding: 8px;
+        border-radius: 8px;
         path {
-          fill: rgb(186 217 252/1);
+          transition: 0.3s;
+          fill: $light-violet-50;
+        }
+      }
+      &:hover {
+        svg {
+          path {
+            fill: $light-violet-25;
+          }
         }
       }
       &--active {
         @extend .list__item;
-        background-color: rgb(24 39 63);
-        border-color: rgba(50, 138, 241, 0.2);
+        a {
+          cursor: default;
+        }
         span {
           display: block;
-          color: rgb(50 138 241);
+          color: $full-white;
         }
         svg {
           margin-right: rem(6px);
+          background-color: $dark-lemon;
 
           path {
-            fill: rgb(50 138 241);
+            fill: $light-lemon;
+          }
+        }
+        &:hover {
+          svg {
+            path {
+              fill: $light-lemon;
+            }
           }
         }
       }
