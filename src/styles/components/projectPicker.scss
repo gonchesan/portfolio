@@ -1,0 +1,120 @@
+@import "../global.scss";
+
+.project-picker {
+  display: flex;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+  &__container {
+    display: flex;
+    row-gap: rem(12px);
+    column-gap: rem(24px);
+    max-width: rem(1166px);
+    margin: 0 auto;
+  }
+  .project {
+    &__view {
+      flex: 1 1 0%;
+    }
+    &__selector {
+      flex-basis: rem(380px);
+      position: relative;
+      color: $full-white;
+      background-color: $ash-gray;
+      border-radius: rem(14.944px);
+      width: 100%;
+      height: auto;
+      min-height: 80vh;
+      margin-top: rem(8px);
+
+      display: flex;
+      .picker {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+        text-align: center;
+        width: 100%;
+        &__title {
+          margin-top: 0.5rem;
+          font-size: 1.16rem;
+          font-weight: 500;
+        }
+        &__caption {
+          margin-top: 0.4rem;
+
+          font-weight: 500;
+          font-size: 0.6666rem;
+          color: $light-violet;
+        }
+        &__list {
+          row-gap: 0.5rem;
+          justify-content: space-between;
+          flex-direction: column;
+          display: flex;
+          margin-top: 1.25rem;
+          list-style: none;
+          .picker__item {
+            text-align: left;
+            padding-bottom: 0.5rem;
+            padding-top: 0.5rem;
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            border-radius: 0.934rem;
+            flex: 1 1 0%;
+            width: 100%;
+            background-color: $gray;
+            border-radius: rem(16px);
+            cursor: pointer;
+            transition: 0.3s;
+            //'''''''''''''
+            display: flex;
+            align-items: center;
+            img {
+              flex-shrink: 0;
+              width: rem(56px);
+              height: rem(56px);
+              background-color: $light-violet-50;
+              border-radius: rem(10px);
+              margin-right: 0.75rem;
+            }
+            header {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              h5 {
+                font-size: 0.767rem;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                display: -webkit-box;
+                overflow: hidden;
+                font-weight: 400;
+                color: $full-white;
+              }
+              time {
+                --tw-text-opacity: 1;
+                color: $light-violet;
+                font-size: 0.6rem;
+                flex-shrink: 0;
+                margin-left: 0.5rem;
+              }
+            }
+            p {
+              font-size: 0.6666rem;
+              color: $light-violet-25;
+              margin-top: 0.25rem;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+              display: -webkit-box;
+              overflow: hidden;
+            }
+            &:hover {
+              background-color: $gray-40;
+            }
+          }
+        }
+      }
+    }
+  }
+}

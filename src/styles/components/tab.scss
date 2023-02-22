@@ -2,7 +2,6 @@
 
 .tab {
   display: flex;
-  width: 100%;
   overflow: auto;
   border-radius: 8px 8px 0 0;
   padding-top: 8px;
@@ -13,10 +12,8 @@
     linear-gradient(to left, rgba(255, 255, 255, 0.1), transparent);
   background-position: left center, right center, left center, right center;
   background-repeat: no-repeat;
-  background-color: $ash-gray;
   background-size: 20px 100%, 20px 100%, 10px 100%, 10px 100%;
   background-attachment: local, local, scroll, scroll;
-
   -webkit-overflow-scrolling: touch;
 
   &::-webkit-scrollbar {
@@ -34,43 +31,58 @@
       &__list {
         display: flex;
         list-style: none;
-        display: flex;
         overflow-x: auto;
+        gap: rem(16px);
       }
       &__item {
-        font-size: rem(13.56px);
+        font-size: rem(17.066px);
         padding: rem(5px) rem(14px);
-        margin-bottom: rem(8px);
+        margin-bottom: rem(20px);
         border-bottom: 2px solid transparent;
         text-overflow: ellipsis;
         white-space: nowrap;
         color: rgba(186, 217, 252, 0.3);
+        border-radius: rem(9999px);
         cursor: pointer;
         position: relative;
         &:hover {
           color: rgba(186, 217, 252, 0.8);
         }
+        @media screen and (max-width: 767px) {
+          background-color: $soft-gray;
+          color: $light-violet-25;
+        }
+
         &--active {
           @extend .tab__item;
           cursor: default;
           font-weight: 600;
-          color: $black;
-          background-color: $lemon;
-          border-radius: rem(6px);
+          color: $white;
           &:hover {
-            color: $black;
+            color: $white;
           }
+
           &::before {
             content: "";
             background-color: $lemon;
             border-radius: rem(14.944px);
-            bottom: 0px;
+            bottom: -20px;
             height: rem(5px);
             width: 100%;
             left: 0px;
             pointer-events: none;
             position: absolute;
             transition: opacity 0.3s;
+          }
+          @media screen and (max-width: 767px) {
+            color: $black;
+            background-color: $lemon;
+            &:hover {
+              color: $black;
+            }
+            &::before {
+              display: none;
+            }
           }
         }
       }
@@ -79,17 +91,16 @@
   &__panel {
     width: 100%;
     border-radius: 0 0 8px 8px;
-    background-color: $ash-gray;
-    min-height: 60vh;
+    min-height: 80vh;
     display: grid;
-    padding: rem(8px);
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(auto-fill, rem(80px));
+    grid-auto-rows: rem(80px);
     padding-top: rem(16px);
-
     grid-column-gap: rem(8px);
     grid-row-gap: rem(8px);
     position: relative;
+
     &::before {
       content: "";
       background: linear-gradient(
@@ -109,28 +120,43 @@
       cursor: pointer;
       transition: 0.3s;
       background-color: $gray;
-      border-radius: rem(6px);
+      border-radius: rem(20px);
       display: flex;
-      flex-direction: column;
-      justify-content: space-around;
       align-items: center;
+      padding-left: rem(12px);
+      padding-right: rem(12px);
+      padding-bottom: rem(4px);
+      padding-top: rem(4px);
       &__image {
-        width: rem(48px);
-        height: rem(48px);
+        width: rem(50px);
+        height: rem(50px);
+        margin-right: rem(16px);
       }
       &__text {
-        font-size: rem(12px);
         font-family: $font-family-cabin;
         color: $white;
-        font-weight: 600;
+        font-weight: 500;
         text-overflow: ellipsis;
         white-space: nowrap;
-        max-width: rem(58px);
         overflow-x: hidden;
+        font-size: rem(15.6px);
       }
       &:hover {
         background-color: $gray-40;
       }
     }
+    @media (min-width: 481px) and (max-width: 768px) {
+      min-height: 60vh;
+      grid-template-columns: repeat(3, 1fr);
+      padding-top: rem(35px);
+    }
+    @media screen and (min-width: 769px) {
+      grid-template-columns: repeat(4, 1fr);
+      padding-top: rem(35px);
+    }
+  }
+  @media screen and (min-width: 768px) {
+    background-image: none;
+    justify-content: center;
   }
 }

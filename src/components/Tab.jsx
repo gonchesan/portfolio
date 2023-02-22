@@ -48,9 +48,10 @@ const Tab = ({ tabInformation }) => {
           {activePanel.map((element) => (
             <div title={element.title} className="block" key={element.title}>
               <img
+                loading="lazy"
                 className="block__image"
                 src={`../src/assets/icons/${element.icon}.png`}
-                alt=""
+                alt={element.title}
               />
               <p className="block__text" key={element.title}>
                 {element.title}

@@ -1,0 +1,307 @@
+@import "../global.scss";
+
+.card {
+  position: relative;
+  color: $full-white;
+  background-color: $ash-gray;
+  border-radius: rem(14.944px);
+  width: 100%;
+  height: auto;
+  margin-top: rem(8px);
+  opacity: 0.4;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr) 70px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    min-height: rem(230px);
+  }
+  &__overlay {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(0deg, #00000088 30%, #ffffff44 100%);
+    border-radius: rem(14.944px) rem(14.944px) 0 0;
+
+    @media (min-width: 481px) and (max-width: 768px) {
+      display: flex;
+      border-radius: rem(14.944px) 0 0 rem(14.944px);
+      grid-area: 1 / 1 / 4 / 2;
+    }
+  }
+  &__aside {
+    position: relative;
+    transition: 0.3s;
+    height: rem(180px);
+    border-radius: rem(14.944px) rem(14.944px) 0 0;
+
+    @media (min-width: 481px) and (max-width: 768px) {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      border-radius: rem(14.944px) 0px 0px rem(14.944px);
+      grid-area: 1 / 1 / 4 / 2;
+    }
+
+    .card__image {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      border-radius: rem(14.944px) rem(14.944px) 0 0;
+      @media (min-width: 481px) and (max-width: 768px) {
+        border-radius: rem(14.944px) 0 0 rem(14.944px);
+      }
+    }
+    .card__status {
+      position: absolute;
+      top: rem(4px);
+      right: rem(8px);
+      z-index: 15;
+      height: rem(20px);
+      padding: rem(1px) rem(12px) rem(1px) rem(16px);
+      background-color: transparent;
+      color: $black-30;
+      border-radius: rem(9999px);
+      font-size: rem(9.6px);
+      font-weight: 700;
+      line-height: 1.9;
+      @media (min-width: 481px) and (max-width: 768px) {
+        right: auto;
+        left: 8px;
+      }
+      i {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: rem(7px);
+        margin-top: rem(-3px);
+        background-color: $black-30;
+        width: rem(6px);
+        height: rem(6px);
+        box-shadow: 0 -1px 1px 0 rgb(0 0 0 / 30%);
+        border-radius: 50%;
+      }
+      &--in-progress {
+        @extend .card__status;
+        background-color: $light-blue;
+      }
+      &--completed {
+        @extend .card__status;
+        background-color: $light-violet;
+      }
+    }
+    .card__header {
+      padding: rem(8px) rem(10px);
+      padding-left: 1.2rem;
+      padding-right: 1.2rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 15;
+      width: 100%;
+      .card__title {
+        font-weight: 600;
+        line-height: 1.4;
+        font-size: rem(19px);
+        font-family: $font-family-cabin;
+        letter-spacing: 0.02rem;
+      }
+
+      .card__date {
+        display: flex;
+        align-items: center;
+        column-gap: 0.75rem;
+        color: $light-violet;
+
+        &-text {
+          display: flex;
+          align-items: center;
+          font-weight: 600;
+          font-size: rem(12.872px);
+        }
+        &-decoration {
+          width: calc(100% - rem(100px));
+          height: 1px;
+          background-color: $light-violet;
+        }
+      }
+    }
+  }
+
+  &__body {
+    padding: 0px rem(8px) rem(10px);
+    transition: 0.4s;
+    overflow-y: hidden;
+    padding-top: rem(11.2px);
+    padding-left: rem(19.2px);
+    padding-right: rem(19.2px);
+    @media (min-width: 481px) and (max-width: 768px) {
+      grid-area: 1 / 2 / 3 / 3;
+      padding-top: rem(18px);
+    }
+    .card__description {
+      color: rgb(255 255 255);
+      line-height: 1.7;
+      font-size: rem(12.59px);
+      font-family: $font-family-poppins;
+      margin-bottom: rem(8px);
+    }
+    .button--toggle {
+      cursor: pointer;
+      outline: none;
+      border: none;
+      background-color: transparent;
+      text-decoration: underline;
+      color: $lemon-70;
+      font-weight: 600;
+      transition: 0.3s;
+      &:hover {
+        color: $lemon;
+      }
+    }
+    .badge {
+      &__wrapper {
+        margin-top: rem(6px);
+      }
+      background-color: $gray;
+      border-color: $gray;
+      box-shadow: inset 0 2px 4px rgb(0 0 0 / 15%);
+      padding: rem(2px) rem(5px) rem(2px) rem(4px);
+      color: $light-gray;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      border-radius: rem(3px);
+      font-size: rem(11px);
+      font-weight: 700;
+      line-height: rem(14px);
+      display: inline-flex;
+      margin-right: rem(6px);
+      align-items: center;
+      &__icon {
+        width: rem(12px);
+        height: rem(12px);
+        margin-right: rem(3px);
+        filter: grayscale(1);
+        transition: 0.3s;
+      }
+      &:hover {
+        background-color: $gray-40;
+        color: $full-white;
+
+        .badge__icon {
+          filter: grayscale(0);
+        }
+      }
+    }
+  }
+  &__footer {
+    padding: rem(8px) rem(24px);
+    border-radius: 0 0 rem(8px) rem(8px);
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    max-width: rem(420px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1rem;
+    gap: rem(12.48px);
+    @media (min-width: 481px) and (max-width: 768px) {
+      flex-direction: row;
+      grid-area: 3 / 2 / 4 / 4;
+      margin-left: 0;
+      margin-right: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .card__button {
+      text-decoration: none;
+      transition: 0.4s;
+      background-clip: padding-box;
+      border-color: transparent;
+      border-radius: rem(16px);
+      border-width: 1px;
+      border-style: solid;
+      align-items: center;
+      display: inline-flex;
+      justify-content: center;
+      font-size: rem(12px);
+      font-weight: 600;
+      letter-spacing: rem(0.2px);
+      line-height: 1.15;
+      max-width: 30rem;
+      padding: rem(16px) rem(22px);
+      position: relative;
+      text-align: center;
+      text-transform: none;
+      transition-duration: 0.15s;
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
+      background-color: #171a1f;
+
+      svg {
+        height: rem(13px);
+        width: rem(13px);
+        margin-right: rem(8px);
+      }
+      &--primary {
+        @extend .card__button;
+        --tw-gradient-from: #ccf148;
+        --tw-gradient-stops: var(--tw-gradient-from),
+          var(--tw-gradient-to, rgba(50, 138, 241, 0));
+        --tw-gradient-to: #ccf148;
+        background-image: linear-gradient(to right, var(--tw-gradient-stops));
+        color: $black;
+        &:hover {
+          --tw-gradient-from: #ccf148;
+          --tw-gradient-stops: var(--tw-gradient-from),
+            var(--tw-gradient-to, rgba(50, 138, 241, 0));
+          --tw-gradient-to: #b3dd62;
+          background-image: linear-gradient(to right, var(--tw-gradient-stops));
+          color: $full-white;
+          color: $black;
+          box-shadow: 0 0 8px 1px rgba(204, 241, 72, 0.2);
+        }
+        svg {
+          path {
+            fill: $black;
+          }
+        }
+      }
+      &--secondary {
+        @extend .card__button;
+        color: $full-white;
+        background-color: $black-50;
+        transition: background-color border-color 0.3s;
+        border-color: rgba(255, 255, 255, 0.2);
+
+        &:hover {
+          background-color: $gray-30;
+          border-color: $gray-30;
+          color: $full-white;
+          box-shadow: 0 0 16px 1px rgba(57, 56, 61, 0.3);
+        }
+
+        svg {
+          g {
+            stroke: $full-white;
+          }
+        }
+      }
+    }
+  }
+  &--active {
+    @extend .card;
+    opacity: 1;
+    transform: translateY(-10px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+}

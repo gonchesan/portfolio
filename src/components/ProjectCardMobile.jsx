@@ -1,13 +1,17 @@
+import useToggle from "../hooks/useToggle";
 import "../styles/components/ProjectCardMobile.scss";
 import LinkExternalIcon from "../assets/icons/LinkExternal";
 import WebsiteIcon from "../assets/icons/Website";
+import useVisibility from "../hooks/useVisibility";
 
-const ProjectCard = ({ projectData }) => {
+const ProjectCardMobile = ({ projectData }) => {
   const { title, description, date, status, repo, website, tags, img } =
     projectData;
+  const [showMore, setShowMore] = useToggle();
+  const [isOpen, cardRef] = useVisibility(50);
 
   return (
-    <div className="project-card ">
+    <div ref={cardRef} className={`card${isOpen ? "--active" : ""}`}>
       <div className="card__aside">
         <div className="card__overlay"></div>
         <span
@@ -30,8 +34,12 @@ const ProjectCard = ({ projectData }) => {
         </div>
       </div>
       <div className="card__body">
-        <span className="card__description">{description}</span>
-
+        <span className="card__description">
+          {showMore ? description : `${description.substring(0, 105)}...`}
+        </span>
+        <button className="button--toggle" onClick={setShowMore}>
+          {showMore ? "Show less" : "Show more"}
+        </button>
         <div className="badge__wrapper">
           {tags.map((tag) => (
             <div className="badge" key={tag.icon}>
@@ -59,4 +67,4 @@ const ProjectCard = ({ projectData }) => {
   );
 };
 
-export default ProjectCard;
+export default ProjectCardMobile;
