@@ -3,46 +3,62 @@
   &-page {
     min-height: 100vh;
     height: 100%;
-    padding: rem(24px) rem(24px) rem(80px);
-  }
-  &__body {
-    .card {
-      padding-bottom: 1.5rem;
-      padding-top: 1.5rem;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-      border-radius: 0.934rem;
-      width: 100%;
-      height: auto;
-      -webkit-mask-image: -webkit-radial-gradient(center, white, black);
+    padding: 0 0 rem(80px);
 
-      background-color: $ash-gray;
-    }
-    .about__text {
-      font-family: $font-family-poppins;
-      font-size: rem(11.59px);
-      line-height: 1.7;
-      margin-bottom: rem(8px);
-    }
-    .list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(rem(140px), rem(200px)));
-      gap: 0px rem(10px);
-      padding: 0px;
-      margin: rem(12px) 0px 0px;
-      overflow: hidden;
-      list-style: none;
-      &__item {
-        font-size: rem(10.8px);
-        font-weight: 600;
-        .disc {
-          width: rem(5px);
-          height: rem(11px);
-          margin-right: rem(6px);
-          border-radius: 0.25rem;
-          display: inline-block;
-          background-color: $lemon;
+    .about__content {
+      .card {
+        padding: rem(32px);
+        border-radius: rem(14.944px);
+        width: 100%;
+        height: auto;
+
+        background-color: $ash-gray;
+
+        .about__text {
+          font-family: $font-family-poppins;
+          font-size: rem(12.48px);
+          line-height: 1.7;
+          margin-bottom: rem(8px);
         }
+        .list {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(rem(140px), rem(200px)));
+          gap: 0px rem(10px);
+          padding: 0px;
+          margin: rem(12px) 0px 0px;
+          overflow: hidden;
+          list-style: none;
+          &__item {
+            font-size: rem(11.12px);
+            font-weight: 600;
+            .disc {
+              width: rem(5px);
+              height: rem(11px);
+              margin-right: rem(6px);
+              border-radius: 0.25rem;
+              display: inline-block;
+              background-color: $lemon;
+            }
+          }
+        }
+        @media screen and (min-width: 768px) {
+          padding-top: rem(24px);
+        }
+      }
+      .about__image {
+        display: none;
+        background-color: $light-violet;
+        width: 100%;
+        height: 100%;
+        min-height: 70vh;
+        @media screen and (min-width: 768px) {
+          display: block;
+        }
+      }
+      @media screen and (min-width: 768px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: rem(32px);
       }
     }
   }

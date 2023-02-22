@@ -16,28 +16,55 @@ const socialMedia = [
 ---
 
 <Layout title="Home" />
-<!-- <h2 class="hello">&lt;HelloWorld &sol;&gt;</h2> -->
 <section class="home-page">
-  <div class="card">
-    <div class="card__body">
-      <div class="card__image"></div>
-      <div class="social-buttons">
-        {
-          socialMedia.map((social) => (
-            <a href={social.slug} target="_blank" title={social.title}>
-              <Icon icon={social.icon} />
-            </a>
-          ))
-        }
+  <div class="container">
+    <div class="hero">
+      <div class="hero__wrapper">
+        <div class="hero__description">
+          <div class="hero__headline">Gonzalo Sanchez Garay</div>
+          <div class="hero__subheadline--short">Front-end developer</div>
+          <div class="hero__subheadline">
+            A Front-End Developer passionate about creating interactive
+            applications and experiences on the web.
+          </div>
+        </div>
+
+        <div class="hero__footer">
+          <button class="button--primary">Download CV</button>
+          <button class="button--secondary">Recent projects</button>
+        </div>
       </div>
-      <h3 class="card__title">Gonzalo Sanchez Garay</h3>
-      <p class="card__subtitle">Front-end developer</p>
+      <div class="hero__images">
+        <img class="hero__profile" src="" alt="" />
+        <div class="hero__socials">
+          {
+            socialMedia.map((social) => (
+              <a href={social.slug} target="_blank" title={social.title}>
+                <Icon icon={social.icon} />
+              </a>
+            ))
+          }
+        </div>
+      </div>
     </div>
 
-    <div class="card__footer">
-      <button class="button--md button--primary">Download CV</button>
-      <button class="button--md button--secondary">Recent projects</button>
-    </div>
+    <!-- <div class="card">
+      <div class="card__body">
+        <div class="card__image"></div> -->
+
+    <!-- <h3 class="card__title"></h3>
+        <p class="card__subtitle">Front-end developer</p>
+        <p class="card__presentation">
+          A Front-End Developer passionate about creating interactive
+          applications and experiences on the web.
+        </p> -->
+    <!-- </div> -->
+
+    <!-- <div class="card__footer">
+        <button class="button--primary">Download CV</button>
+        <button class="button--secondary">Recent projects</button>
+      </div> -->
+    <!-- </div> -->
   </div>
 </section>
 <!-- <p>

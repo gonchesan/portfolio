@@ -4,10 +4,20 @@
   &-page {
     min-height: 100vh;
     height: 100%;
-    padding: rem(24px) rem(24px) rem(96px);
+    padding: 0px 0px rem(96px);
   }
-  &__wrapper {
+  &__container {
+    display: flex;
+    column-gap: rem(24px);
+    max-width: rem(1166px);
+    margin: 0 auto;
+  }
+  &__cards {
     display: grid;
     row-gap: rem(12px);
+
+    @media screen and (min-width: 769px) {
+      display: none;
+    }
   }
 }

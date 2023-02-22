@@ -1,11 +1,13 @@
 ---
 //  My Projects  List of projects  View of project
 import Layout from "../layouts/Layout.astro";
-import ProjectCard from "../components/ProjectCard";
+import ProjectCardMobile from "../components/ProjectCardMobile";
+import ProjectPicker from "../components/ProjectPicker";
 import "../styles/pages/projects.scss";
 
 const PROJECTS = [
   {
+    id: "leecp4vbtk98nux0bvd",
     title: "Sparky Solutions",
     description:
       "This website was built using Next.js and pure CSS, with the help of the styled components library for a single reusable React component. The site is fully responsive and features three pages: home, about, and contact us.",
@@ -24,6 +26,7 @@ const PROJECTS = [
     ],
   },
   {
+    id: "leecpfctqb0ff06mbtf",
     title: "Personal data API",
     description:
       "My public REST API for personal information. Use HTTP requests to view my certificates, projects, studies, work experience and more. This API is built with MongoDB, Mongoose, Express, and Node.js, and follows REST architecture. I am also using Jest for testing. This API is being consumed by my portfolio.",
@@ -42,6 +45,7 @@ const PROJECTS = [
     ],
   },
   {
+    id: "leecpov966pulsrndw7",
     title: "PedidosYa Scraper API",
     description:
       "I am implementing a project that uses web scraping via Playwright to gather information from PedidosYa. I am then utilizing Cloudflare Workers and Hono to create an API for the collected information. The data is stored in JSON files and images are optimized using the Sharp library. These files are periodically uploaded to a MongoDB for backup.",
@@ -61,17 +65,23 @@ const PROJECTS = [
 ---
 
 <Layout title="Projects">
-  <section class="projects-page">
-    <header class="header">
-      <h3 class="header__title">Projects</h3>
-      <p class="header__caption">More Recently Updated</p>
-    </header>
-    <div class="projects__wrapper">
-      {
-        PROJECTS.map((project) => (
-          <ProjectCard client:load projectData={project} />
-        ))
-      }
-    </div>
-  </section>
+  <div class="container">
+    <section class="projects-page">
+      <header class="header">
+        <h3 class="header__title">Projects</h3>
+        <p class="header__caption">
+          Curious what's new at Gonchesan? The projects have been recently
+          updated.
+        </p>
+      </header>
+      <div class="projects__cards">
+        {
+          PROJECTS.map((project) => (
+            <ProjectCardMobile client:load projectData={project} />
+          ))
+        }
+      </div>
+      <ProjectPicker client:load projectsData={PROJECTS} />
+    </section>
+  </div>
 </Layout>

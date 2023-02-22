@@ -60,13 +60,15 @@ const tabInformation = {
 <!-- My Skills
 Currently I have skills and management of the following web and mobile technologies. -->
 <Layout title="Skills">
-  <section class="skills-page">
-    <header class="header">
-      <h3 class="header__title">Skills</h3>
-      <p class="header__caption">
-        I like to craft beautiful and scalable web products
-      </p>
-    </header>
-    <Tab client:load tabInformation={tabInformation} />
-  </section>
+  <div class="container">
+    <section class="skills-page">
+      <header class="header">
+        <h3 class="header__title">Skills</h3>
+        <p class="header__caption">
+          I like to craft beautiful and scalable web products
+        </p>
+      </header>
+      <Tab client:load tabInformation={tabInformation} />
+    </section>
+  </div>
 </Layout>

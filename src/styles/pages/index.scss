@@ -3,68 +3,128 @@
 .home-page {
   height: 100vh;
   padding: rem(0px) rem(24px);
-  .card {
-    &__body {
+
+  .hero {
+    display: flex;
+    align-items: center;
+    height: 80vh;
+    @media screen and (max-width: 1023px) {
+      height: 100%;
+      flex-direction: column-reverse;
+    }
+    &__wrapper {
+      width: 100%;
       display: flex;
       flex-direction: column;
+    }
+    &__images {
+      display: flex;
+      flex-direction: column;
+      place-content: center;
+      justify-content: center;
+      width: 100%;
+      .hero__profile {
+        display: grid;
+        border-radius: 50%;
+        align-self: center;
+        background-color: $soft-gray;
+        width: rem(150px);
+        height: rem(150px);
+        margin-top: rem(48px);
+        @media screen and (min-width: 1024px) {
+          display: none;
+        }
+      }
+      .hero__socials {
+        text-align: center;
+        margin: rem(8px) auto;
 
-      .card {
-        &__image {
-          display: grid;
-          border-radius: 50%;
-          align-self: center;
-          background-color: $soft-gray;
-          width: rem(150px);
-          height: rem(150px);
-          margin-top: rem(64px);
+        @media screen and (min-width: 1024px) {
+          position: absolute;
+          top: rem(320px);
+          right: 24px;
+          display: flex;
+          flex-direction: column;
+          gap: rem(8px);
+          &::before {
+            content: "";
+            position: absolute;
+            top: 6rem;
+            right: 1.5rem;
+            width: 1px;
+            height: rem(170px);
+            background-color: $light-violet-50;
+          }
         }
-        &__title {
-          line-height: 1.25;
-          font-size: rem(30.2px);
-          font-weight: 600;
-          color: $full-white;
-          letter-spacing: 0.02rem;
-        }
-        &__subtitle {
-          color: $light-violet;
-          font-weight: 500;
-          margin-top: rem(11.2px);
-          letter-spacing: 0;
-          font-family: $font-family-poppins;
+        a {
+          text-decoration: none;
+          border: none;
+          outline: none;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 0.4rem;
+          height: 2.3rem;
+          width: 2.3rem;
+          margin-right: rem(8px);
+          transition: background-color 0.3s, border 0.3s;
+          background-color: $gray;
+          svg {
+            height: rem(36.8px);
+            width: rem(36.8px);
+            path {
+              fill: $white;
+            }
+          }
+          &:hover {
+            background-color: $gray-40;
+          }
         }
       }
     }
-    .social-buttons {
-      text-align: center;
-      margin: rem(8px) auto;
-      a {
-        text-decoration: none;
-        border: none;
-        outline: none;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 0.4rem;
-        height: 2.3rem;
-        width: 2.3rem;
-        margin-right: rem(8px);
-        transition: background-color 0.3s, border 0.3s;
-        background-color: $gray;
+    &__headline {
+      line-height: 1.25;
+      font-size: rem(28.2px);
+      font-weight: 600;
+      color: $full-white;
+      letter-spacing: 0.02rem;
+      @media (min-width: 426px) {
+        font-size: rem(30.2px);
+      }
+    }
+    &__subheadline {
+      color: $light-violet;
+      font-weight: 500;
+      margin-top: rem(11.2px);
+      letter-spacing: 0;
+      font-family: $font-family-poppins;
+      display: inline-block;
+      max-width: rem(530px);
+      display: none;
 
-        svg {
-          height: rem(36.8px);
-          width: rem(36.8px);
-          path {
-            fill: $white;
-          }
-        }
-        &:hover {
-          background-color: $gray-40;
+      @media (min-width: 768px) {
+        display: inline-block;
+      }
+
+      &--short {
+        @extend .hero__subheadline;
+        color: $light-violet;
+        font-weight: 500;
+        margin-top: rem(11.2px);
+        letter-spacing: 0;
+        font-family: $font-family-poppins;
+        display: inline-block;
+        @media (min-width: 768px) {
+          display: none;
         }
       }
     }
     &__footer {
       margin-top: rem(12px);
+      @media (min-width: 426px) {
+        display: flex;
+        gap: rem(16px);
+      }
       .button {
         width: 100%;
         margin-top: rem(14px);
@@ -74,7 +134,9 @@
         padding: rem(12px) rem(32px);
         transition: 0.3s;
         font-family: $font-family-poppins;
-
+        @media (min-width: 426px) {
+          max-width: rem(240px);
+        }
         &--primary {
           @extend .button;
           --tw-gradient-from: #ccf148;
