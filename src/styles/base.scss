@@ -51,4 +51,42 @@ html {
       color: $light-violet;
     }
   }
+
+  .container {
+    margin: 0 auto;
+    width: 100%;
+    @media (min-width: 320px) and (max-width: 480px) {
+      padding: 20px;
+    }
+    @media (min-width: 481px) and (max-width: 768px) {
+      // max-width: 500px;
+    }
+    @media (min-width: 768px) {
+      padding: 40px 30px;
+      max-width: 100%;
+    }
+    @media (min-width: 992px) {
+      max-width: 100%;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 1130px;
+    }
+
+    @media screen and (min-width: 1300px) {
+      max-width: 1200px;
+      padding: 0px;
+    }
+  }
 }
+//320-480
+//481-768
+//769-1024
+//1025-1200
+
+//?Small
+// @media (max-width:800px)
+//?Medium
+// @media (min-width:800px) and (max-width: 1200px)
+//?Large
+// @media (min-width:1200px)
